@@ -54,4 +54,5 @@ module.exports = {
       }
     ]
   },
+  // need a resolve here?
 }
