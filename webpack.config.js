@@ -24,7 +24,7 @@ module.exports = {
      * to localhost:3000/api/* (where our Express server is running)
      */
     proxy: {
-      '/**': {
+      '/test/**': {
         target: 'http://localhost:3000/',
         secure: false,
       },
@@ -33,12 +33,14 @@ module.exports = {
         secure: false,
       },
     },
+    // this allows my reacct-router-dom routes to work
+    historyApiFallback: true
   },  
 
   module: {
     rules: [
       {
-        test: /.js$/,
+        test: /\.jsx?/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -55,4 +57,7 @@ module.exports = {
     ]
   },
   // need a resolve here?
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  }
 }
