@@ -12,6 +12,7 @@ body {
 
 #header {
   display: flex;
+  align-items: center;
   background-color: white;
 }
 
@@ -41,7 +42,28 @@ body {
 }
 
 #obey {
-  width: 200px
+  width: 200px;
+  height: 68px;
+  border: solid 1px black;
+  border-right: 0;
+  border-top: 0;
+  border-bottom: 0;
+  padding-bottom: 23px;
+}
+
+#obey-img {
+  height: auto;
+  width: 100px;
+  border: solid black 1px;
+  position: relative;
+}
+
+#linkedIn {
+  position: absolute;
+  top: 25px;
+  left: 1295px;
+  font-size: 60px;
+  opacity: 0;
 }
 
 #main-body {
@@ -74,6 +96,13 @@ body {
   opacity: 0;
 }
 
+#easter-egg {
+  position: absolute;
+  top: 155px;
+  left: 130px;
+  opacity: 0;
+}
+
 #forgotten-faces:hover {
   animation: fade-in 1500ms ease-out;
   animation-fill-mode: forwards;
@@ -98,6 +127,13 @@ body {
   color: black;
 }
 
+#holds-add {
+  display: flex;
+}
+
+#add-on-quotes {
+}
+
 #quotes-stack {
   display: flex;
   flex-direction: column;
@@ -105,11 +141,16 @@ body {
 }
 
 #quote-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding-top: 50px;
   width: 700px;
   height: 90px;
   background-color: rgba(255, 255, 255, 0.8);
   border: solid black 1px;
+  border-radius: 8px;
+  margin-bottom: 10px;
 }
 
 /* word fog */
@@ -128,4 +169,41 @@ body {
   100% {
     color: rgba(0, 0, 0, 0);
   }
+}
+
+/* Easter Egg */
+
+#easter-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#face-animation {
+  height: auto;
+  width: 400px;
+  border: black 2px solid;
+}
+
+#lyrics {
+  text-align: center;
+  margin-top: 10px;
+  border: black 1px solid;
+  display: inline;
+  width: 350px;
+  background-color: rgba(255, 255, 255, .7);
+}
+
+/* linkedIn */
+#linkedin-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#barcode {
+  height: auto;
+  width: 500px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }

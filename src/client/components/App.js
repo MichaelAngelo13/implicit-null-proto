@@ -6,6 +6,8 @@ import LandingPage from './LandingPage.jsx'
 import Thoughts from './Thoughts.jsx'
 import Wordfog from './Wordfog.jsx'
 import Library from './Library.jsx'
+import EasterEgg from './EasterEgg.jsx'
+import LinkedIn from './LinkedIn.jsx'
 
 import '../stylesheets/styles.css'
 
@@ -19,6 +21,8 @@ function App() {
             <Route path="/thoughts" element={<Thoughts />}></Route>
             <Route path="/word-fog" element={<Wordfog />}></Route>
             <Route path="/library" element={<Library />}></Route>
+            <Route path="/easterEgg" element={<EasterEgg />}></Route>
+            <Route path="/linkedIn" element={<LinkedIn />}></Route>
           </Routes>
         </main>
       </Router>
