@@ -30,6 +30,9 @@ app.post('/addStrangerQuote', quoteController.addStrangerQuote, (req, res) => {
   })
 
 // to handle deletion
+app.delete('/deleteQuote:quoteId', quoteController.deleteQuote, (req, res) => {
+  res.status(200).json(res.locals.deletedQuote);
+})
 
 // and to handle getting(will be initiated by the front end mostlikely)
 app.get('/savedQuotes', quoteController.getQuotes, (req, res) => {
