@@ -12,7 +12,6 @@ const PORT = 3000;
  */
 app.use(express.json());
 
-
 // to open a new page send a get request to an extension that will then serve a new html
 // we can use the sendFile method available from our response and path to create an absolute path to go to new html files
 app.use('/nice', quoteController.niceTest, (req, res) => res.sendFile(path.join(__dirname, '../client/html-pages/nice.html')))

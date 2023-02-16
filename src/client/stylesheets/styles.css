@@ -1,4 +1,28 @@
-#test {
-  background-color: black;
-  color: white;
+body {
+  background: url("../assets/fog-base.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+#main-page {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+#brand {
+  font-size: 70px;
+}
+
+#nav-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#homepage-button {
+  font-size: 15px;
+  background-color: white;
+  color: black;
+  text-decoration: none;
+  border-radius: 4px;
 }
