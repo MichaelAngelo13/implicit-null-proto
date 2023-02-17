@@ -100,7 +100,13 @@ body {
   position: absolute;
   top: 155px;
   left: 130px;
+  text-decoration: none;
+  color: black;
   opacity: 0;
+}
+
+#easter-egg:hover {
+  opacity: 1;
 }
 
 #forgotten-faces:hover {
