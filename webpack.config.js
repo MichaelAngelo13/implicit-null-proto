@@ -20,8 +20,6 @@ module.exports = {
     /**
      * proxy is required in order to make api calls to
      * express server while using hot-reload webpack server
-     * routes api fetch requests from localhost:8080/api/* (webpack dev server)
-     * to localhost:3000/api/* (where our Express server is running)
      */
     proxy: {
       '/test/**': {
@@ -40,7 +38,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?/,
+        test: /\.jsx?/, // using regex, regular expressions
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -56,7 +54,7 @@ module.exports = {
       }
     ]
   },
-  // need a resolve here?
+  // need a resolve here? loll
   resolve: {
     extensions: ['.js', '.jsx'],
   }
