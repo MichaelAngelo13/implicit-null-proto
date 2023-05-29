@@ -68,25 +68,6 @@ quoteController.getQuotes = (req, res, next) => {
     next(err)});
 }
 
-// get api quotes
-quoteController.getAPIQuotes = (req, res, next) => {
-  // add a document to my quote collection
-  fetch(`https://philosophyapi.pythonanywhere.com/api/ideas/?page=1`)
-  .then(jsonQuotes => {
-    // parse the json response
-    return jsonQuotes.json();
-  })
-  .then(parsedQuotes => {
-    // persist in locals
-    res.locals.parsedQuotes = parsedQuotes;
-    // go to next
-    return next();
-  })
-  .catch(err => {
-    console.log('dang');
-    next(err)});
-}
-
 // delete a quote
 quoteController.deleteQuote = (req, res, next) => {
   // declare our correct id; by removing the colon in front of it; not sure why its there

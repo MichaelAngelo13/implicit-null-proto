@@ -5,6 +5,7 @@ const app = express();
 const cors = require('cors');
 
 const quoteController = require('./controllers/quoteController')
+const philoAPIController = require('./controllers/philoAPIController')
 
 const PORT = 3000;
 
@@ -42,7 +43,7 @@ app.get('/db/savedQuotes', quoteController.getQuotes, (req, res) => {
 })
 
 // get api quotes through proxy
-app.get('/api/quotes', quoteController.getAPIQuotes, (req, res) => {
+app.get('/api/quotes', philoAPIController.getAPIQuotes, (req, res) => {
   return res.status(200).json(res.locals.parsedQuotes);
 })
 
