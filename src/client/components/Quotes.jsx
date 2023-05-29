@@ -11,7 +11,7 @@ function Quotes() {
     const randomPageNum = Math.floor(Math.random() * 17)
     // declare an async func to fetch our quotes
     async function fetchQuotes() {
-      const response = await fetch(`https://philosophyapi.pythonanywhere.com/api/ideas/?page=1`);
+      const response = await fetch(`/test/quotes`);
       const data = await response.json();
       const fetchedQuotes = data.results;
       console.log(fetchedQuotes);

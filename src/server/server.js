@@ -2,6 +2,7 @@
 const path = require('path');
 const express = require('express');
 const app = express();
+const cors = require('cors');
 
 const quoteController = require('./controllers/quoteController')
 
@@ -10,6 +11,7 @@ const PORT = 3000;
 /**
  * handle parsing request body
  */
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -21,7 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 // ? strangely this route would not work using a use method, had to be post
 // adds quotes to our quote collection
 app.post('/test/addQuote', quoteController.addQuote, (req, res) => {
-res.status(200).json(res.locals.newQuote)
+  res.status(200).json(res.locals.newQuote)
 })
 
 // handles creation of api quote
@@ -37,6 +39,11 @@ app.delete('/deleteQuote:quoteId', quoteController.deleteQuote, (req, res) => {
 // and to handle getting(will be initiated by the front end mostlikely)
 app.get('/savedQuotes', quoteController.getQuotes, (req, res) => {
   res.status(200).json(res.locals.quotes)
+})
+
+// get api quotes through proxy
+app.get('/test/quotes', quoteController.getAPIQuotes, (req, res) => {
+  return res.status(200).json(res.locals.parsedQuotes);
 })
 
 // lastly updating
