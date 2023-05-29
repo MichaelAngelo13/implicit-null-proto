@@ -22,7 +22,11 @@ module.exports = {
      * express server while using hot-reload webpack server
      */
     proxy: {
-      '/test/**': {
+      '/db/**': {
+        target: 'http://localhost:3000/',
+        secure: false,
+      },
+      '/api/**': {
         target: 'http://localhost:3000/',
         secure: false,
       },

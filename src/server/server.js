@@ -22,33 +22,31 @@ app.use(express.urlencoded({ extended: true }));
 // need route to handle creation of original quote
 // ? strangely this route would not work using a use method, had to be post
 // adds quotes to our quote collection
-app.post('/test/addQuote', quoteController.addQuote, (req, res) => {
+app.post('/db/addQuote', quoteController.addQuote, (req, res) => {
   res.status(200).json(res.locals.newQuote)
 })
 
 // handles creation of api quote
-app.post('/addStrangerQuote', quoteController.addStrangerQuote, (req, res) => {
+app.post('/db/addStrangerQuote', quoteController.addStrangerQuote, (req, res) => {
   res.status(200).json(res.locals.newStrangerQuote)
   })
 
 // to handle deletion
-app.delete('/deleteQuote:quoteId', quoteController.deleteQuote, (req, res) => {
+app.delete('/db/deleteQuote/:quoteId', quoteController.deleteQuote, (req, res) => {
   res.status(200).json(res.locals.deletedQuote);
 })
 
 // and to handle getting(will be initiated by the front end mostlikely)
-app.get('/savedQuotes', quoteController.getQuotes, (req, res) => {
+app.get('/db/savedQuotes', quoteController.getQuotes, (req, res) => {
   res.status(200).json(res.locals.quotes)
 })
 
 // get api quotes through proxy
-app.get('/test/quotes', quoteController.getAPIQuotes, (req, res) => {
+app.get('/api/quotes', quoteController.getAPIQuotes, (req, res) => {
   return res.status(200).json(res.locals.parsedQuotes);
 })
 
 // lastly updating
-
-
 
 /**
  * handle requests for static files on our serverside
@@ -75,3 +73,6 @@ app.use((err, req, res, next) => {
 app.listen(PORT, () => {
  console.log(`Server listening on port: ${PORT}...`);
 });
+
+// export app to import in other files
+module.exports = app;

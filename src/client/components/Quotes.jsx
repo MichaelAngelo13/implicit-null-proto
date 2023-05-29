@@ -11,7 +11,7 @@ function Quotes() {
     const randomPageNum = Math.floor(Math.random() * 17)
     // declare an async func to fetch our quotes
     async function fetchQuotes() {
-      const response = await fetch(`/test/quotes`);
+      const response = await fetch(`/api/quotes`);
       const data = await response.json();
       const fetchedQuotes = data.results;
       console.log(fetchedQuotes);
@@ -35,7 +35,7 @@ function Quotes() {
     const input = document.getElementById('add-thought');
     const value = input.value;
     // then we send it to our server
-    fetch('/test/addQuote', {
+    fetch('/db/addQuote', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -53,7 +53,7 @@ function Quotes() {
     const quoteId = id;
     console.log(id);
     // then we send it to our server
-    fetch('http://localhost:3000/addStrangerQuote', {
+    fetch('/db/addStrangerQuote', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
