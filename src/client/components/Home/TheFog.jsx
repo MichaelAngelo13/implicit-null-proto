@@ -11,7 +11,7 @@ function TheFog() {
     setInterval(() => {
       // declare an async func to fetch our quotes
       async function fetchSavedQuotes() {
-        const response = await fetch('http://localhost:3000/savedQuotes');
+        const response = await fetch('/db/savedQuotes');
         const data = await response.json();
         const fetchedQuotes = data;
         // when we have our quote Objects we set them as our quotes

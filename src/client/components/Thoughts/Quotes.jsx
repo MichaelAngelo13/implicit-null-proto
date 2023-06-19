@@ -79,14 +79,16 @@ function Quotes() {
 
       <h3>thoughts from strangers</h3>
 
-      {quotes.map((quote) => (
+      {quotes.length === 0 ? (
+          <h2>loading</h2>
+      ) :
+      quotes.map((quote) => (
         <div key={quote.id} id="quote-container">
           Stranger {randomNum()}:<br/>
           <div id="holds-add">
-            {quote.quote}
+          {quote.quote}
           </div>
           <button id="add-on-quotes" onClick={(click) => handleAddQuote(click, quote.id)}>add</button>
-          
         </div>
       ))}
     </div>

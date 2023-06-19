@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 // pages
-import LandingPage from './LandingPage.jsx'
-import Thoughts from './Thoughts.jsx'
-import Wordfog from './Wordfog.jsx'
-import Library from './Library.jsx'
-import EasterEgg from './EasterEgg.jsx'
-import LinkedIn from './LinkedIn.jsx'
+import LandingPage from './Home/LandingPage.jsx'
+import Thoughts from './Thoughts/Thoughts.jsx'
+import Wordfog from './Home/Wordfog.jsx'
+import Library from './Library/Library.jsx'
+import EasterEgg from './Home/EasterEgg.jsx'
+import LinkedIn from './Home/LinkedIn.jsx'
 
 import '../stylesheets/styles.css'
 
