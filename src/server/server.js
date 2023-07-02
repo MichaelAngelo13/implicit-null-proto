@@ -43,7 +43,7 @@ app.get('/db/savedQuotes', quoteController.getQuotes, (req, res) => {
 })
 
 // get api quotes through proxy
-app.get('/api/quotes', philoAPIController.getAPIQuotes, (req, res) => {
+app.get('/api/quotes/:pageNum', philoAPIController.getAPIQuotes, (req, res) => {
   return res.status(200).json(res.locals.parsedQuotes);
 })
 

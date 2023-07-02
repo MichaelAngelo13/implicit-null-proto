@@ -30,6 +30,7 @@ quoteController.addQuote = (req, res, next) => {
 }
 
 quoteController.addStrangerQuote = (req, res, next) => {
+  // TODO: errors when adds from new pages; will need to gather text content of quote, should i also gather author?
   async function fetchQuotes() {
     // fecth the api quotes
     const response = await fetch('https://philosophyapi.pythonanywhere.com/api/ideas/');

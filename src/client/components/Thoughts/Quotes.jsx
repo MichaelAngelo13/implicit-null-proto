@@ -4,27 +4,29 @@ import React, { useState, useEffect } from 'react';
 function Quotes() {
   // destructure useState setting state as an empty array
   const [quotes, setQuotes] = useState([]);
+  const [pageNum, setPageNum] = useState(1);
 
   // TODO: declare a variable to represent our page number
-
-  // TODO: move fetch quotes outside the useEffect to reassign quotes on click of page buttons; the query for next page looks like: ?page=2
 
   // define useEffect
   useEffect(() => {
     // declare a random number from 2-17
     const randomPageNum = Math.floor(Math.random() * 17)
+
     // declare an async func to fetch our quotes
     async function fetchQuotes() {
-      const response = await fetch(`/api/quotes`);
+
+      const response = await fetch(`/api/quotes/${pageNum}`);
       const data = await response.json();
       const fetchedQuotes = data.results;
       console.log(fetchedQuotes);
+
       // when we have our quote Objects we set them as our quotes
       setQuotes(fetchedQuotes);
     }
     // we invoke our async func
     fetchQuotes();
-  }, []);
+  }, [pageNum]);
 
   // random number for authors
   function randomNum() {
@@ -50,7 +52,7 @@ function Quotes() {
   }
 
   // create onClick for quotes
-  function handleAddQuote(e, id) {
+  const handleAddQuote = (e, id) => {
     // stops the from from submitting
     e.preventDefault()
     // we declare our id
@@ -66,7 +68,11 @@ function Quotes() {
     });
   }
 
-  // TODO: Add buttons to move pages
+  const handlePageTraversal = pageTraversal => {
+    if (pageNum + pageTraversal === 0) return;
+    setPageNum(pageNum + pageTraversal);
+  }
+
   // TODO: I also want to have a poems section
   return (
     <div id="quotes-stack">
@@ -84,6 +90,11 @@ function Quotes() {
       </form>
 
       <h3>thoughts from strangers</h3>
+
+      <div id="nav-button-container">
+        <button onClick={() => handlePageTraversal(-1)}>back</button>
+        <button onClick={() => handlePageTraversal(1)}>next</button>
+      </div>
 
       {quotes.length === 0 ? (
           <h2>loading</h2>

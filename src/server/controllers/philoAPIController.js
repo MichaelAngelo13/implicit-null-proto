@@ -5,8 +5,11 @@ const philoController = {};
 
 // get quotes from philosophy api
 philoController.getAPIQuotes = (req, res, next) => {
+  // destructure pageNum from params
+  const { pageNum } = req.params;
+  console.log(pageNum);
   // make a fecth to our api endpoint
-  fetch(`https://philosophyapi.pythonanywhere.com/api/ideas/?page=1`)
+  fetch(`https://philosophyapi.pythonanywhere.com/api/ideas/?page=${pageNum}`)
   .then(jsonQuotes => {
     // parse the json response
     return jsonQuotes.json();
