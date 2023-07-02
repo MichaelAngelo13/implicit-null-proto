@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon ./src/server/server.js",
+    "dev": "concurrently \"nodemon ./src/server/server.js\" \"webpack-dev-server --mode development --open --hot\"",
     "start": "webpack-dev-server --mode development --open --hot",
     "build": "webpack --mode production"
   },
@@ -25,6 +25,7 @@
     "@babel/preset-env": "^7.20.2",
     "@babel/preset-react": "^7.18.6",
     "babel-loader": "^9.1.2",
+    "concurrently": "^8.2.0",
     "css-loader": "^6.7.3",
     "dotenv": "^16.0.3",
     "html-webpack-plugin": "^5.5.0",

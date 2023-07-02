@@ -5,6 +5,10 @@ function Quotes() {
   // destructure useState setting state as an empty array
   const [quotes, setQuotes] = useState([]);
 
+  // TODO: declare a variable to represent our page number
+
+  // TODO: move fetch quotes outside the useEffect to reassign quotes on click of page buttons; the query for next page looks like: ?page=2
+
   // define useEffect
   useEffect(() => {
     // declare a random number from 2-17
@@ -62,6 +66,8 @@ function Quotes() {
     });
   }
 
+  // TODO: Add buttons to move pages
+  // TODO: I also want to have a poems section
   return (
     <div id="quotes-stack">
 
