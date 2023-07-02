@@ -4,9 +4,8 @@ import React, { useState, useEffect } from 'react';
 function Quotes() {
   // destructure useState setting state as an empty array
   const [quotes, setQuotes] = useState([]);
+  // TODO: For now we can only traverse the pages, would like to implement numbers we can click
   const [pageNum, setPageNum] = useState(1);
-
-  // TODO: declare a variable to represent our page number
 
   // define useEffect
   useEffect(() => {
@@ -52,19 +51,20 @@ function Quotes() {
   }
 
   // create onClick for quotes
-  const handleAddQuote = (e, id) => {
-    // stops the from from submitting
-    e.preventDefault()
-    // we declare our id
-    const quoteId = id;
-    console.log(id);
+  const handleAddQuote = (e, quote, author) => {
+    // TODO: I am using a form but will experiment w this and the form;
+    e.preventDefault();
+
     // then we send it to our server
     fetch('/db/addStrangerQuote', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({quoteId: quoteId})
+      body: JSON.stringify({
+        quote,
+        author 
+      })
     });
   }
 
@@ -77,7 +77,7 @@ function Quotes() {
   return (
     <div id="quotes-stack">
 
-      <form autocomplete="off">
+      <form autoComplete="off">
         <div id="holds-add">
           <div>
             <input id="add-thought" type="text" placeholder='???'/>
@@ -99,13 +99,13 @@ function Quotes() {
       {quotes.length === 0 ? (
           <h2>loading</h2>
       ) :
-      quotes.map((quote) => (
-        <div key={quote.id} id="quote-container">
+      quotes.map((quoteObj) => (
+        <div key={quoteObj.id} id="quote-container">
           Stranger {randomNum()}:<br/>
           <div id="holds-add">
-          {quote.quote}
+          {quoteObj.quote}
           </div>
-          <button id="add-on-quotes" onClick={(click) => handleAddQuote(click, quote.id)}>add</button>
+          <button id="add-on-quotes" onClick={(click) => handleAddQuote(click, quoteObj.quote, quoteObj.author)}>add</button>
         </div>
       ))}
     </div>
