@@ -1,11 +1,11 @@
 // import path, express, and the invocation of express to use their methods
-const path = require('path');
-const express = require('express');
+const path = require("path");
+const express = require("express");
 const app = express();
-const cors = require('cors');
+const cors = require("cors");
 
-const quoteController = require('./controllers/quoteController')
-const philoAPIController = require('./controllers/philoAPIController')
+const quoteController = require("./controllers/quoteController");
+const philoAPIController = require("./controllers/philoAPIController");
 
 const PORT = 3000;
 
@@ -23,56 +23,62 @@ app.use(express.urlencoded({ extended: true }));
 // need route to handle creation of original quote
 // ? strangely this route would not work using a use method, had to be post
 // adds quotes to our quote collection
-app.post('/db/addQuote', quoteController.addQuote, (req, res) => {
-  res.status(200).json(res.locals.newQuote)
-})
+app.post("/db/addQuote", quoteController.addQuote, (req, res) => {
+  res.status(200).json(res.locals.newQuote);
+});
 
 // handles creation of api quote
-app.post('/db/addStrangerQuote', quoteController.addStrangerQuote, (req, res) => {
-  res.status(200).json(res.locals.newStrangerQuote)
-  })
+app.post(
+  "/db/addStrangerQuote",
+  quoteController.addStrangerQuote,
+  (req, res) => {
+    res.status(200).json(res.locals.newStrangerQuote);
+  }
+);
 
 // to handle deletion
-app.delete('/db/deleteQuote/:quoteId', quoteController.deleteQuote, (req, res) => {
-  res.status(200).json(res.locals.deletedQuote);
-})
+app.delete(
+  "/db/deleteQuote/:quoteId",
+  quoteController.deleteQuote,
+  (req, res) => {
+    res.status(200).json(res.locals.deletedQuote);
+  }
+);
 
 // and to handle getting(will be initiated by the front end mostlikely)
-app.get('/db/savedQuotes', quoteController.getQuotes, (req, res) => {
-  res.status(200).json(res.locals.quotes)
-})
+app.get("/db/savedQuotes", quoteController.getQuotes, (req, res) => {
+  res.status(200).json(res.locals.quotes);
+});
 
 // get api quotes through proxy
-app.get('/api/quotes/:pageNum', philoAPIController.getAPIQuotes, (req, res) => {
+app.get("/api/quotes/:pageNum", philoAPIController.getAPIQuotes, (req, res) => {
   return res.status(200).json(res.locals.parsedQuotes);
-})
+});
 
 // lastly updating
 
 /**
  * handle requests for static files on our serverside
  */
-app.use(express.static(path.resolve(__dirname, '../client')));
-
+app.use(express.static(path.resolve(__dirname, "../client")));
 
 /* express error handler */
 app.use((err, req, res, next) => {
   const defaultErr = {
-    log: 'Express error handler caught unknown middleware error',
+    log: "Express error handler caught unknown middleware error",
     status: 500,
-    message: { err: 'An error occurred' },
+    message: { err: "An error occurred" },
   };
   const errorObj = Object.assign({}, defaultErr, err);
   console.log(errorObj.log);
   return res.status(errorObj.status).json(errorObj.message);
 });
 
-
 /**
-* start server
-*/
+ * start server
+ */
 app.listen(PORT, () => {
- console.log(`Server listening on port: ${PORT}...`);
+  console.log(`Server listening on port: ${PORT}...`);
 });
 
 // export app to import in other files

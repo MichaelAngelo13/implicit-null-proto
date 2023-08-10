@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-
+import React, { useState, useEffect } from "react";
 
 function Quotes() {
   // destructure useState setting state as an empty array
@@ -10,11 +9,10 @@ function Quotes() {
   // define useEffect
   useEffect(() => {
     // declare a random number from 2-17
-    const randomPageNum = Math.floor(Math.random() * 17)
+    const randomPageNum = Math.floor(Math.random() * 17);
 
     // declare an async func to fetch our quotes
     async function fetchQuotes() {
-
       const response = await fetch(`/api/quotes/${pageNum}`);
       const data = await response.json();
       const fetchedQuotes = data.results;
@@ -27,27 +25,28 @@ function Quotes() {
     fetchQuotes();
   }, [pageNum]);
 
+  // TODO: make this synchronized with the fetch of quotes
   // random number for authors
   function randomNum() {
-    return Math.floor(Math.random() * 999999)
+    return Math.floor(Math.random() * 999999);
   }
 
   // create onClick from original quotes
   function handleAddThought(e) {
     // stops the from from submitting
-    e.preventDefault()
+    e.preventDefault();
     // we declare our value
-    const input = document.getElementById('add-thought');
+    const input = document.getElementById("add-thought");
     const value = input.value;
     // then we send it to our server
-    fetch('/db/addQuote', {
-      method: 'POST',
+    fetch("/db/addQuote", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({quote: value})
+      body: JSON.stringify({ quote: value }),
     });
-    input.value = '';
+    input.value = "";
   }
 
   // create onClick for quotes
@@ -56,31 +55,30 @@ function Quotes() {
     e.preventDefault();
 
     // then we send it to our server
-    fetch('/db/addStrangerQuote', {
-      method: 'POST',
+    fetch("/db/addStrangerQuote", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         quote,
-        author 
-      })
+        author,
+      }),
     });
-  }
+  };
 
-  const handlePageTraversal = pageTraversal => {
-    if (pageNum + pageTraversal === 0) return;
+  const handlePageTraversal = (pageTraversal) => {
+    if (pageNum + pageTraversal <= 0 || pageNum + pageTraversal >= 18) return;
     setPageNum(pageNum + pageTraversal);
-  }
+  };
 
   // TODO: I also want to have a poems section
   return (
     <div id="quotes-stack">
-
       <form autoComplete="off">
         <div id="holds-add">
           <div>
-            <input id="add-thought" type="text" placeholder='???'/>
+            <input id="add-thought" type="text" placeholder="???" />
           </div>
 
           <div>
@@ -97,20 +95,25 @@ function Quotes() {
       </div>
 
       {quotes.length === 0 ? (
-          <h2>loading</h2>
-      ) :
-      quotes.map((quoteObj) => (
-        <div key={quoteObj.id} id="quote-container">
-          Stranger {randomNum()}:<br/>
-          <div id="holds-add">
-          {quoteObj.quote}
+        <h2>loading</h2>
+      ) : (
+        quotes.map((quoteObj) => (
+          <div key={quoteObj.id} id="quote-container">
+            Stranger {randomNum()}:<br />
+            <div id="holds-add">{quoteObj.quote}</div>
+            <button
+              id="add-on-quotes"
+              onClick={(click) =>
+                handleAddQuote(click, quoteObj.quote, quoteObj.author)
+              }
+            >
+              add
+            </button>
           </div>
-          <button id="add-on-quotes" onClick={(click) => handleAddQuote(click, quoteObj.quote, quoteObj.author)}>add</button>
-        </div>
-      ))}
+        ))
+      )}
     </div>
   );
-
 }
 
 export default Quotes;

@@ -20,7 +20,7 @@ mongoose.connect(MONGO_URI,{
 
 const Schema = mongoose.Schema;
 
-// define our schema for our quotes
+// define our schema for our quotes 
 const quoteSchema = new Schema({
   text: { type: String, required: true },
   author: { type: String, required: true }
