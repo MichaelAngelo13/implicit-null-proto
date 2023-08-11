@@ -32,8 +32,8 @@ function SavedQuotes() {
   }
 
   return (
-    <main id="quotes-stack">
-      <div>
+    <div id="quotes-stack">
+      <section>
         {savedQuotes
           .map((quote) => {
             return (
@@ -51,8 +51,8 @@ function SavedQuotes() {
             );
           })
           .reverse()}
-      </div>
-    </main>
+      </section>
+    </div>
   );
 }
 

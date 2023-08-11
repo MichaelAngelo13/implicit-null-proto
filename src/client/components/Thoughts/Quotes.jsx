@@ -72,7 +72,7 @@ function Quotes() {
     setPageNum(pageNum + pageTraversal);
   };
 
-  // TODO: I also want to have a poems section
+  // TODO: I also want to have a poems section; fix form
   return (
     <div id="quotes-stack">
       <form autoComplete="off">
@@ -89,16 +89,16 @@ function Quotes() {
 
       <h3>thoughts from strangers</h3>
 
-      <div id="nav-button-container">
+      <nav id="nav-button-container">
         <button onClick={() => handlePageTraversal(-1)}>back</button>
         <button onClick={() => handlePageTraversal(1)}>next</button>
-      </div>
+      </nav>
 
       {quotes.length === 0 ? (
         <h2>loading</h2>
       ) : (
         quotes.map((quoteObj) => (
-          <div key={quoteObj.id} id="quote-container">
+          <section key={quoteObj.id} id="quote-container">
             Stranger {randomNum()}:<br />
             <div id="holds-add">{quoteObj.quote}</div>
             <button
@@ -109,7 +109,7 @@ function Quotes() {
             >
               add
             </button>
-          </div>
+          </section>
         ))
       )}
     </div>

@@ -21,7 +21,7 @@ function TheFog() {
   }, []);
 
   return (
-    <main>
+    <section>
       <div>
         {thefog.map((word, i) => {
           // create a random generator for top and left position
@@ -43,7 +43,7 @@ function TheFog() {
           );
         })}
       </div>
-    </main>
+    </section>
   );
 }
 

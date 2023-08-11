@@ -33,7 +33,7 @@ function LandingPage() {
         </div>
       </header>
 
-      <div id="main-body">
+      <section id="main-body">
         <div id="imgs-holder">
           <img id="proto-img" src="../assets/proto-img.png"></img>
           <img
@@ -46,7 +46,7 @@ function LandingPage() {
         </div>
 
         <p id="slogan">fog hides nothing to be seen, or does it?</p>
-      </div>
+      </section>
     </div>
   );
 }

@@ -4,9 +4,9 @@ import TheFog from "./TheFog.jsx";
 
 function Wordfog() {
   return (
-    <main>
+    <section>
       <TheFog />
-    </main>
+    </section>
   );
 }
 

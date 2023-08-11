@@ -14,7 +14,7 @@ function EasterEgg() {
         <img id="face-animation" src="../assets/face-animation.gif" />
       </div>
 
-      <div id="lyrics">
+      <section id="lyrics">
         you are a liar with all of these faces <br />
         internet, public, and in your own spaces
         <br />
@@ -28,7 +28,7 @@ function EasterEgg() {
         <br />
         but its behind your face.
         <br />
-      </div>
+      </section>
 
       <h5>
         <Link id="logo-home" to="/">
