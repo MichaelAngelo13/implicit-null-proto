@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from 'react';
-
-
+import React, { useState, useEffect } from "react";
 
 function TheFog() {
   // destructure useState setting state as an empty array
@@ -11,7 +9,7 @@ function TheFog() {
     setInterval(() => {
       // declare an async func to fetch our quotes
       async function fetchSavedQuotes() {
-        const response = await fetch('/db/savedQuotes');
+        const response = await fetch("/db/savedQuotes");
         const data = await response.json();
         const fetchedQuotes = data;
         // when we have our quote Objects we set them as our quotes
@@ -19,27 +17,34 @@ function TheFog() {
       }
       // we invoke our async func
       fetchSavedQuotes();
-    }, 3000)
+    }, 3000);
   }, []);
 
-
   return (
-    <main>
+    <section>
       <div>
         {thefog.map((word, i) => {
           // create a random generator for top and left position
           const left = Math.floor(Math.random() * 1000);
-          const top = Math.floor(Math.random() * 750)
+          const top = Math.floor(Math.random() * 750);
           console.log(top, left);
-          return(
-            <div key={i} id="word-fog" style={{ position: 'absolute', top: `${top}px`, left: `${left}px`}}>
+          return (
+            <div
+              key={i}
+              id="word-fog"
+              style={{
+                position: "absolute",
+                top: `${top}px`,
+                left: `${left}px`,
+              }}
+            >
               {word.text}
             </div>
-          )
+          );
         })}
       </div>
-    </main>
-  )
+    </section>
+  );
 }
 
 export default TheFog;

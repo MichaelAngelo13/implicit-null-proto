@@ -1,19 +1,13 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import TheFog from './TheFog.jsx'
+import React from "react";
+import { Link } from "react-router-dom";
+import TheFog from "./TheFog.jsx";
 
 function Wordfog() {
-
-
-
-
-  return(
-    <main>
-      
+  return (
+    <section>
       <TheFog />
-
-    </main>
-  )
+    </section>
+  );
 }
 
 export default Wordfog;
