@@ -7,6 +7,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, "dist"),
     filename: "bundle.js",
+    publicPath: "/",
   },
 
   plugins: [
@@ -55,6 +56,24 @@ module.exports = {
         use: ["style-loader", "css-loader", "postcss-loader"],
         exclude: /node_modules/,
       },
+      // TODO: figure the resolving of relative paths of assets; below are two loaders for img resolution; html/url-loader
+      // {
+      //   test: /\.(html)$/,
+      //   use: {
+      //     loader: "html-loader",
+      //   },
+      // },
+      // {
+      //   test: /\.(png|jpg|gif)$/i,
+      //   use: [
+      //     {
+      //       loader: "url-loader",
+      //       options: {
+      //         limit: 8192,
+      //       },
+      //     },
+      //   ],
+      // },
     ],
   },
   // need a resolve here? loll
