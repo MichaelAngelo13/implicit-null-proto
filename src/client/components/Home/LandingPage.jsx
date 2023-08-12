@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function LandingPage() {
   return (
-    <div id="main-page" className="bg-green-500">
+    <div id="main-page" className="bg-emerald-200">
       <header id="header">
         <h1 id="brand">.implicit Null</h1>
 
