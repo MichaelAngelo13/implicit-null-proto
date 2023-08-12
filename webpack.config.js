@@ -1,19 +1,18 @@
-const path = require('path');
-const HTMLWebpackPlugin = require('html-webpack-plugin');
+const path = require("path");
+const HTMLWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
+  entry: "./src/client/index.js",
 
-  entry: './src/client/index.js',
-  
   output: {
-    path: path.resolve(__dirname, '/dist'),
-    filename: 'bundle.js'
-    },
-    
+    path: path.join(__dirname, "dist"),
+    filename: "bundle.js",
+  },
+
   plugins: [
     new HTMLWebpackPlugin({
-      template: './src/client/index.html'
-    })
+      template: "./src/client/index.html",
+    }),
   ],
 
   devServer: {
@@ -22,22 +21,22 @@ module.exports = {
      * express server while using hot-reload webpack server
      */
     proxy: {
-      '/db/**': {
-        target: 'http://localhost:3000/',
+      "/db/**": {
+        target: "http://localhost:3000/",
         secure: false,
       },
-      '/api/**': {
-        target: 'http://localhost:3000/',
+      "/api/**": {
+        target: "http://localhost:3000/",
         secure: false,
       },
-      '/assets/**': {
-        target: 'http://localhost:3000/',
+      "/assets/**": {
+        target: "http://localhost:3000/",
         secure: false,
       },
     },
-    // this allows my reacct-router-dom routes to work
-    historyApiFallback: true
-  },  
+    // this allows my react-router-dom routes to work
+    historyApiFallback: true,
+  },
 
   module: {
     rules: [
@@ -45,21 +44,21 @@ module.exports = {
         test: /\.jsx?/, // using regex, regular expressions
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
+          loader: "babel-loader",
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react']
-          }
-        }
+            presets: ["@babel/preset-env", "@babel/preset-react"],
+          },
+        },
       },
-      { 
-        test: /\.css$/, 
-        use: ["style-loader", "css-loader"],
-        exclude: /node_modules/
-      }
-    ]
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader", "postcss-loader"],
+        exclude: /node_modules/,
+      },
+    ],
   },
   // need a resolve here? loll
   resolve: {
-    extensions: ['.js', '.jsx'],
-  }
-}
+    extensions: [".js", ".jsx"],
+  },
+};
