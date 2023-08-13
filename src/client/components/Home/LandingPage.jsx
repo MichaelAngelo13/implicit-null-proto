@@ -3,50 +3,48 @@ import { Link } from "react-router-dom";
 
 function LandingPage() {
   return (
-    <div id="main-page" className="bg-emerald-200">
-      <header id="header">
-        <h1 id="brand">.implicit Null</h1>
+    <div>
+      <header className="flex items-center bg-white">
+        <h1 className="mb-3 mt-3 border-r-2 border-black pr-8 text-7xl">
+          .implicit Null
+        </h1>
 
-        <nav id="nav-button-container">
-          <button id="homepage-button">
-            <Link id="homepage-button" to="/thoughts">
-              strangers' thoughts
-            </Link>
-          </button>
-          <button id="homepage-button">
-            <Link id="homepage-button" to="/word-fog">
-              word fog
-            </Link>
-          </button>
-          <button id="homepage-button">
-            <Link id="homepage-button" to="/library">
-              words you gave time
-            </Link>
-          </button>
+        <nav className="flex flex-1 justify-around">
+          <Link to="/thoughts">strangers' thoughts</Link>
+          <Link to="/word-fog">word fog</Link>
+          <Link to="/library">words you gave time</Link>
         </nav>
 
-        <div id="obey">
-          <img id="obey-img" src="../assets/wire-face.jpg" />
-          <Link id="linkedIn" to="/linkedIn">
-            0.0
-          </Link>
-        </div>
+        <a
+          href="/linkedIn"
+          className="relative w-40 border-l-2 border-black pl-12"
+        >
+          <img
+            src="../assets/wire-face.jpg"
+            className="h-16 border-[1px] border-black"
+          />
+        </a>
       </header>
 
-      <section id="main-body">
-        <div id="imgs-holder">
-          <img id="proto-img" src="../assets/proto-img.png"></img>
+      <section className="w- relative flex flex-col items-center pt-36">
+        <div>
+          <img src="../assets/proto-img.png" className="absolute w-[430px]" />
           <img
-            id="forgotten-faces"
+            className="duration-1500 h-[298px] w-[430px] opacity-0 transition-opacity ease-in hover:opacity-95"
             src="../assets/faces-you-dont-remember.png"
-          ></img>
-          <Link id="easter-egg" to="/easterEgg">
+          />
+          <Link
+            className="absolute left-[630px] top-72 opacity-0 hover:opacity-95"
+            to="/easterEgg"
+          >
             egg
           </Link>
         </div>
-
-        <p id="slogan">fog hides nothing to be seen, or does it?</p>
       </section>
+
+      <p className="end-0 m-12 text-lg">
+        fog hides nothing to be seen, or does it?
+      </p>
     </div>
   );
 }
