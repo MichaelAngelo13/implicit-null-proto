@@ -7,24 +7,6 @@ body {
   background-size: cover;
 }
 
-#easter-egg:hover {
-  opacity: 1;
-}
-
-#forgotten-faces:hover {
-  animation: fade-in 1500ms ease-out;
-  animation-fill-mode: forwards;
-}
-
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
 #slogan {
   font-size: 19px;
 }
@@ -37,9 +19,6 @@ body {
 
 #holds-add {
   display: flex;
-}
-
-#add-on-quotes {
 }
 
 #quotes-stack {

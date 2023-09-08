@@ -95,7 +95,7 @@ function Quotes() {
       </nav>
 
       {quotes.length === 0 ? (
-        <h2>loading</h2>
+        <h2>loading ...</h2>
       ) : (
         quotes.map((quoteObj) => (
           <section key={quoteObj.id} id="quote-container">
