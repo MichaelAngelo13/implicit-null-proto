@@ -9,12 +9,15 @@ function EasterEgg() {
   };
 
   return (
-    <main id="easter-page">
+    <main className="flex flex-col items-center">
       <div>
-        <img id="face-animation" src="../assets/face-animation.gif" />
+        <img
+          className="mt-2 h-auto w-96 border-2 border-solid border-black"
+          src="../assets/face-animation.gif"
+        />
       </div>
 
-      <section id="lyrics">
+      <section className="mt-3 border-2 border-solid border-black bg-white px-2 py-1 text-center">
         you are a liar with all of these faces <br />
         internet, public, and in your own spaces
         <br />

@@ -7,18 +7,8 @@ body {
   background-size: cover;
 }
 
-#slogan {
-  font-size: 19px;
-}
-
-/* thoughts ids */
-#logo-home {
-  text-decoration: none;
-  color: black;
-}
-
 /* word fog */
-#word-fog {
+.word-fog {
   animation: fog-fade 3000ms;
   animation-iteration-count: infinite;
 }
@@ -36,38 +26,8 @@ body {
 }
 
 /* Easter Egg */
-
-#easter-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 #face-animation {
   height: auto;
   width: 400px;
   border: black 2px solid;
-}
-
-#lyrics {
-  text-align: center;
-  margin-top: 10px;
-  border: black 1px solid;
-  display: inline;
-  width: 350px;
-  background-color: rgba(255, 255, 255, 0.7);
-}
-
-/* linkedIn */
-#linkedin-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-#barcode {
-  height: auto;
-  width: 500px;
-  margin-top: 20px;
-  margin-bottom: 20px;
 }
