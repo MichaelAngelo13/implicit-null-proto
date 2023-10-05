@@ -5,15 +5,14 @@ import { Link } from "react-router-dom";
 function Library() {
   return (
     <div id="main-page">
-      <h1 id="brand">
-        <Link id="logo-home" to="/">
-          .implicit Null
-        </Link>
-      </h1>
+      <Link className="text-5xl" to="/">
+        .implicit Null
+      </Link>
 
-      <section id="quotes">
+      <section className="mt-6">
         <SavedQuotes />
       </section>
+
       <footer>
         save it before it disappears
         <br />

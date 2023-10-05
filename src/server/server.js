@@ -60,6 +60,7 @@ app.get("/api/quotes/:pageNum", philoAPIController.getAPIQuotes, (req, res) => {
 /**
  * handle requests for static files on our serverside
  */
+// TODO: here i need to make it so when we are in production we read from dist directory
 app.use(express.static(path.resolve(__dirname, "../client")));
 
 /* express error handler */
