@@ -24,10 +24,3 @@ body {
     color: rgba(0, 0, 0, 0);
   }
 }
-
-/* Easter Egg */
-#face-animation {
-  height: auto;
-  width: 400px;
-  border: black 2px solid;
-}
