@@ -4,14 +4,12 @@ import { Link } from "react-router-dom";
 
 function Thoughts() {
   return (
-    <div id="main-page">
-      <h1 id="brand">
-        <Link id="logo-home" to="/">
-          .implicit Null
-        </Link>
-      </h1>
+    <div>
+      <Link to="/" className="text-5xl">
+        .implicit Null
+      </Link>
 
-      <div id="quotes">
+      <div className="mt-3">
         <Quotes />
       </div>
     </div>

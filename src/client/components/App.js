@@ -15,7 +15,7 @@ import "../stylesheets/styles.css";
 function App() {
   return (
     <Router>
-      <main>
+      <main className="flex flex-col text-center">
         <Routes>
           <Route path="/" element={<LandingPage />}></Route>
           <Route path="/thoughts" element={<Thoughts />}></Route>

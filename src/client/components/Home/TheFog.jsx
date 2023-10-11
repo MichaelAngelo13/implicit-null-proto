@@ -5,7 +5,7 @@ function TheFog() {
   const [thefog, setTheFog] = useState([]);
 
   // define useEffect
-  useEffect(() => {
+  useEffect(async () => {
     setInterval(() => {
       // declare an async func to fetch our quotes
       async function fetchSavedQuotes() {
@@ -31,7 +31,7 @@ function TheFog() {
           return (
             <div
               key={i}
-              id="word-fog"
+              className="word-fog"
               style={{
                 position: "absolute",
                 top: `${top}px`,

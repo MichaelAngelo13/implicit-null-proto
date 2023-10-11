@@ -74,44 +74,60 @@ function Quotes() {
 
   // TODO: I also want to have a poems section; fix form
   return (
-    <div id="quotes-stack">
-      <form autoComplete="off">
-        <div id="holds-add">
-          <div>
-            <input id="add-thought" type="text" placeholder="???" />
-          </div>
+    <div className="flex flex-col items-center gap-2">
+      <form autoComplete="off" className="mt-10 flex items-center gap-2">
+        <input type="text" placeholder="???" className="rounded-sm" />
 
-          <div>
-            <button onClick={handleAddThought}>add</button>
-          </div>
+        <div>
+          <button
+            onClick={handleAddThought}
+            className="rounded-md border-2 border-black px-1"
+          >
+            add
+          </button>
         </div>
       </form>
 
-      <h3>thoughts from strangers</h3>
+      <h3 className="italic">thoughts from strangers</h3>
 
-      <nav id="nav-button-container">
-        <button onClick={() => handlePageTraversal(-1)}>back</button>
-        <button onClick={() => handlePageTraversal(1)}>next</button>
+      <nav className="mb-2 flex gap-3 rounded-sm px-2 py-1">
+        <button
+          onClick={() => handlePageTraversal(-1)}
+          className="text-md rounded-sm bg-white px-2"
+        >
+          back
+        </button>
+        <button
+          onClick={() => handlePageTraversal(1)}
+          className="text-md rounded-sm bg-white px-2"
+        >
+          next
+        </button>
       </nav>
 
-      {quotes.length === 0 ? (
-        <h2>loading</h2>
-      ) : (
-        quotes.map((quoteObj) => (
-          <section key={quoteObj.id} id="quote-container">
-            Stranger {randomNum()}:<br />
-            <div id="holds-add">{quoteObj.quote}</div>
-            <button
-              id="add-on-quotes"
-              onClick={(click) =>
-                handleAddQuote(click, quoteObj.quote, quoteObj.author)
-              }
+      <section className="flex w-full flex-col items-center gap-3">
+        {quotes.length === 0 ? (
+          <h2>loading ...</h2>
+        ) : (
+          quotes.map((quoteObj) => (
+            <div
+              key={quoteObj.id}
+              className="flex w-5/12 flex-col items-center gap-2 rounded-md bg-white px-2 py-3"
             >
-              add
-            </button>
-          </section>
-        ))
-      )}
+              Stranger {randomNum()}:<br />
+              <div className="">{quoteObj.quote}</div>
+              <button
+                className="w-20 rounded-md border-2 border-black bg-white"
+                onClick={(click) =>
+                  handleAddQuote(click, quoteObj.quote, quoteObj.author)
+                }
+              >
+                add
+              </button>
+            </div>
+          ))
+        )}
+      </section>
     </div>
   );
 }

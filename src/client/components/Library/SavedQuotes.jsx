@@ -33,16 +33,20 @@ function SavedQuotes() {
 
   return (
     <div id="quotes-stack">
-      <section>
+      <section className="flex flex-col items-center gap-4">
         {savedQuotes
           .map((quote) => {
             return (
-              <div id="quote-container" key={`${quote._id}`}>
+              <div
+                className="flex w-5/12 flex-col items-center gap-2 rounded-md bg-white px-2 py-3"
+                key={`${quote._id}`}
+              >
                 {quote.text}
                 <br />
                 {quote.author}
                 <br />
                 <button
+                  className="w-20 rounded-md border-2 border-black bg-white"
                   onClick={(click) => handleDeleteQuote(click, quote._id)}
                 >
                   delete
