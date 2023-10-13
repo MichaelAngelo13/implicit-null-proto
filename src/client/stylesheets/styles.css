@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* #landing-page */
 body {
   background: url("../assets/fog-base.jpg") no-repeat center center fixed;
   background-size: cover;

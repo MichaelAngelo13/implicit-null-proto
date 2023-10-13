@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function LandingPage() {
   return (
-    <div>
+    <div id="landing-page">
       <header className="flex items-center bg-white">
         <h1 className="mb-3 mt-3 border-r-2 border-black pr-8 text-7xl">
           .implicit Null

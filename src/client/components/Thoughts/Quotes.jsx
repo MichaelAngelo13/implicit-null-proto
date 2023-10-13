@@ -75,7 +75,7 @@ function Quotes() {
   // TODO: I also want to have a poems section; fix form
   return (
     <div className="flex flex-col items-center gap-2">
-      <form autoComplete="off" className="mt-10 flex items-center gap-2">
+      <form autoComplete="off" className="mt-5 flex items-center gap-2">
         <input type="text" placeholder="???" className="rounded-sm" />
 
         <div>
@@ -88,7 +88,7 @@ function Quotes() {
         </div>
       </form>
 
-      <h3 className="italic">thoughts from strangers</h3>
+      <h3 className="italic">search for thoughts</h3>
 
       <nav className="mb-2 flex gap-3 rounded-sm px-2 py-1">
         <button
@@ -105,16 +105,18 @@ function Quotes() {
         </button>
       </nav>
 
-      <section className="flex w-full flex-col items-center gap-3">
+      <section className="my-4 flex w-full flex-wrap justify-center gap-4">
         {quotes.length === 0 ? (
           <h2>loading ...</h2>
         ) : (
           quotes.map((quoteObj) => (
             <div
               key={quoteObj.id}
-              className="flex w-5/12 flex-col items-center gap-2 rounded-md bg-white px-2 py-3"
+              className="flex flex-col items-center justify-center gap-2 rounded-md bg-white px-3 py-5 opacity-0 transition duration-1000 ease-in-out hover:opacity-95 sm:w-11/12 md:w-1/3 xl:w-1/4"
             >
-              Stranger {randomNum()}:<br />
+              {/* TODO: Handle how stranger appears {randomNum()} */}
+              Stranger:
+              <br />
               <div className="">{quoteObj.quote}</div>
               <button
                 className="w-20 rounded-md border-2 border-black bg-white"
