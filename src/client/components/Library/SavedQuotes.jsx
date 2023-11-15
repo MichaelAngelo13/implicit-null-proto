@@ -46,7 +46,7 @@ function SavedQuotes() {
                 {quote.author}
                 <br />
                 <button
-                  className="w-20 rounded-md border-2 border-black bg-white"
+                  className="w-20 rounded-md border-2 border-black bg-white  transition duration-75 ease-in-out hover:bg-black hover:text-white"
                   onClick={(click) => handleDeleteQuote(click, quote._id)}
                 >
                   delete

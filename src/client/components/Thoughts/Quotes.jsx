@@ -127,7 +127,7 @@ function Quotes() {
               <br />
               <div className="">{quoteObj.quote}</div>
               <button
-                className="w-20 rounded-md border-2 border-black bg-white"
+                className="w-20 rounded-md border-2 border-black bg-white  transition duration-200 ease-in-out hover:bg-black hover:text-white"
                 onClick={(click) =>
                   handleAddQuote(click, quoteObj.quote, quoteObj.author)
                 }
