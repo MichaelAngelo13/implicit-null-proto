@@ -2,9 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-/* #landing-page */
-body {
+#landing-page {
   background: url("../assets/fog-base.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+#the-fog {
+  background: url("../assets/fog2.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+#the-library {
+  background: url("../assets/fog3.jpeg") no-repeat center center fixed;
   background-size: cover;
 }
 
@@ -16,7 +25,7 @@ body {
 
 @keyframes fog-fade {
   0% {
-    color: rgba(255, 255, 255, 0.1);
+    color: rgba(0, 0, 0, 0);
   }
   50% {
     color: rgba(0, 0, 0, 1);

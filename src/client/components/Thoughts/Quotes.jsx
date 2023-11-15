@@ -76,19 +76,29 @@ function Quotes() {
   return (
     <div className="flex flex-col items-center gap-2">
       <form autoComplete="off" className="mt-5 flex items-center gap-2">
-        <input type="text" placeholder="???" className="rounded-sm" />
+        <input
+          type="text"
+          placeholder="???"
+          className="rounded-sm border-[1px] border-black bg-white px-1"
+        />
 
         <div>
           <button
             onClick={handleAddThought}
-            className="rounded-md border-2 border-black px-1"
+            className="rounded-md border-2 border-black bg-white px-1"
           >
-            add
+            add thought
           </button>
         </div>
       </form>
 
-      <h3 className="italic">search for thoughts</h3>
+      <div className="bg-white italic">
+        {quotes.length === 0 ? (
+          <h3 className="animate-pulse">. . .</h3>
+        ) : (
+          <h3 className="animate-pulse">search for thoughts</h3>
+        )}
+      </div>
 
       <nav className="mb-2 flex gap-3 rounded-sm px-2 py-1">
         <button
@@ -106,13 +116,11 @@ function Quotes() {
       </nav>
 
       <section className="my-4 flex w-full flex-wrap justify-center gap-4">
-        {quotes.length === 0 ? (
-          <h2>loading ...</h2>
-        ) : (
+        {quotes.length !== 0 &&
           quotes.map((quoteObj) => (
             <div
               key={quoteObj.id}
-              className="flex flex-col items-center justify-center gap-2 rounded-md bg-white px-3 py-5 opacity-0 transition duration-1000 ease-in-out hover:opacity-95 sm:w-11/12 md:w-1/3 xl:w-1/4"
+              className="flex flex-col items-center justify-center gap-2 rounded-md bg-white px-3 py-5 opacity-0 transition duration-1000 ease-in-out hover:opacity-100 sm:w-11/12 md:w-1/3 xl:w-1/4"
             >
               {/* TODO: Handle how stranger appears {randomNum()} */}
               Stranger:
@@ -127,8 +135,7 @@ function Quotes() {
                 add
               </button>
             </div>
-          ))
-        )}
+          ))}
       </section>
     </div>
   );

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 function TheFog() {
   // destructure useState setting state as an empty array
@@ -21,7 +22,7 @@ function TheFog() {
   }, []);
 
   return (
-    <section>
+    <section id="the-fog" className="h-screen">
       <div>
         {thefog.map((word, i) => {
           // create a random generator for top and left position

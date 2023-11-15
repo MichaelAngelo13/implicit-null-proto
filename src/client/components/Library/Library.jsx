@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function Library() {
   return (
-    <div id="main-page">
+    <div id="the-library" className="h-screen">
       <Link className="text-5xl" to="/">
         .implicit Null
       </Link>

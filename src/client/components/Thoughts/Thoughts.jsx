@@ -7,16 +7,19 @@ function Thoughts() {
   const [bgWords, setBgWords] = useState("");
 
   useEffect(() => {
-    let currentIndex = 0;
+    const randomIndex = Math.floor(Math.random() * bgWordsArr.length);
+
+    let currentIndex = randomIndex;
 
     const interval = setInterval(() => {
+      if (currentIndex >= bgWordsArr.length) currentIndex = 0;
       if (currentIndex < bgWordsArr.length) {
         setBgWords((prevText) => prevText + `${bgWordsArr[currentIndex]} `);
         currentIndex++;
       } else {
         clearInterval(interval);
       }
-    }, 500);
+    }, 200);
 
     return () => {
       clearInterval(interval); // Clear the interval when the component unmounts
@@ -33,7 +36,7 @@ function Thoughts() {
         {memoizedWords}
       </div>
 
-      <div className="relative z-10 mt-4 w-1/3 rounded-md bg-white py-12 text-center">
+      <div className="relative z-10 mt-4 rounded-lg bg-white text-center">
         <Link to="/" className="text-5xl">
           .implicit Null
         </Link>
